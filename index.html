@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hop Tools — Small tools. Sharp focus.</title>
+  <meta name="description" content="A growing collection of carefully built utilities by Joseph Ballantyne. Designed to stay out of your way and respect your privacy." />
+  <meta name="author" content="Joseph Ballantyne" />
+  <meta property="og:title" content="Hop Tools" />
+  <meta property="og:description" content="Small tools. Sharp focus." />
+  <meta property="og:url" content="https://hoptools.studio" />
+  <link rel="canonical" href="https://hoptools.studio" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/" onclick="showPage('home'); return false;">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16" fill="none">
+        <circle cx="5" cy="5" r="2.5" fill="white" opacity="0.9"/>
+        <circle cx="11" cy="5" r="2.5" fill="white" opacity="0.6"/>
+        <circle cx="5" cy="11" r="2.5" fill="white" opacity="0.6"/>
+        <circle cx="11" cy="11" r="2.5" fill="white" opacity="0.3"/>
+      </svg>
+    </div>
+    Hop Tools
+  </a>
+  <div class="nav-links">
+    <a class="nav-link active" id="nav-home" href="/" onclick="showPage('home'); return false;">Tools</a>
+    <a class="nav-link" id="nav-contact" href="#contact" onclick="showPage('contact'); return false;">Contact</a>
+  </div>
+</nav>
+
+<!-- ======================== HOME PAGE ======================== -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="4"/></svg>
+      Independent tools for focused work
+    </div>
+    <h1>Small tools.<br><span>Sharp focus.</span></h1>
+    <p>A growing collection of carefully built utilities designed to stay out of your way and respect your privacy.</p>
+  </div>
+
+  <div class="tools-section">
+    <div class="section-label">All tools</div>
+    <div class="tools-grid">
+
+      <!-- Pocket Copy -->
+      <a class="tool-card" href="#pocket-copy" onclick="showPage('pocket-copy'); return false;">
+        <div class="card-arrow">↗</div>
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+            <rect x="9" y="3" width="6" height="4" rx="1"/>
+          </svg>
+        </div>
+        <h3>Pocket Copy</h3>
+        <p>A minimal, privacy-first clipboard manager for macOS that lives in your menu bar. Everything stays local.</p>
+        <div class="tool-tags">
+          <span class="tag tag-macos">macOS</span>
+          <span class="tag tag-free">Free</span>
+          <span class="tag tag-privacy">Privacy-first</span>
+        </div>
+      </a>
+
+      <!-- Revit Plugin (coming soon) -->
+      <div class="tool-card coming-soon">
+        <div class="tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3>Revit Plugin</h3>
+        <p>A productivity plugin for Autodesk Revit. Streamline your BIM workflow with smart automation.</p>
+        <div class="tool-tags">
+          <span class="tag tag-revit">Revit</span>
+          <span class="tag tag-soon">Coming soon</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================== POCKET COPY PAGE ======================== -->
+<div class="page" id="page-pocket-copy">
+  <div class="tool-detail">
+
+    <a class="back-btn" href="/" onclick="showPage('home'); return false;">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2L4 7l5 5"/></svg>
+      All tools
+    </a>
+
+    <div class="detail-header">
+      <div class="detail-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Pocket Copy</h1>
+        <p>A minimal, privacy-first clipboard manager for macOS that lives in your menu bar. All data stored locally on your Mac.</p>
+      </div>
+    </div>
+
+    <p class="detail-desc">
+      Pocket Copy sits quietly in your menu bar, keeping a history of everything you copy without ever sending a byte off your machine. No subscriptions, no accounts, no cloud — just your clipboard, always within reach.
+    </p>
+
+    <div class="action-row">
+      <!-- TODO: Replace href with your actual .dmg download URL -->
+      <a class="btn-primary" href="/downloads/PocketCopy.dmg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download .dmg
+      </a>
+      <!-- TODO: Replace href with your actual GitHub URL -->
+      <a class="btn-secondary" href="https://github.com/JosephPBallantyne/pocket-copy" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+      <!-- TODO: Replace href with your actual Product Hunt URL -->
+      <a class="btn-secondary" href="https://www.producthunt.com/products/pocket-copy" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Product Hunt
+      </a>
+    </div>
+
+    <div class="video-box">
+      <iframe src="https://www.loom.com/embed/ce8580e06aa643778062d30014b44576" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <div><strong>Menu bar native</strong><p>Always one click away, never in your dock.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <div><strong>100% local</strong><p>Your clipboard data never leaves your Mac.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <div><strong>Instant search</strong><p>Find any previous copy in milliseconds.</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-dot"></div>
+        <div><strong>Minimal by design</strong><p>No bloat, no onboarding, no accounts.</p></div>
+      </div>
+    </div>
+
+    <div class="quotes-section">
+      <h2>What people are saying</h2>
+      <div class="quotes-grid">
+        <!-- TODO: Replace with real quotes -->
+        <div class="quote-card">
+          <p class="quote-text">"Finally a clipboard manager that doesn't try to be everything. It's fast, it's quiet, and I trust it completely — because nothing leaves my machine."</p>
+          <div class="quote-author">— Product Hunt reviewer</div>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">"I've tried every clipboard app out there. Pocket Copy is the only one I've kept running for more than a week. The simplicity is the feature."</p>
+          <div class="quote-author">— GitHub user</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== CONTACT PAGE ======================== -->
+<div class="page" id="page-contact">
+  <div class="contact-page">
+    <h1>Get in touch</h1>
+    <p>Questions about a tool, feedback, or just want to say hello — I'd love to hear from you.</p>
+
+    <div class="about-blurb">
+      Hi, I'm <strong>Joseph Ballantyne</strong> — a developer based in the UK building tools I actually use.
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Email</div>
+          <!-- TODO: Replace with your real email -->
+          <div class="contact-value"><a href="mailto:hello@hoptools.studio">hello@hoptools.studio</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <!-- TODO: Replace with your real GitHub URL -->
+          <div class="contact-value"><a href="https://github.com/JosephPBallantyne" target="_blank" rel="noopener">github.com/JosephPBallantyne</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Based in</div>
+          <div class="contact-value">United Kingdom</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-note">
+      Hop Tools is a sole trader business operated by Joseph Ballantyne, based in the United Kingdom. For legal correspondence, please use the email address above.
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Hop Tools · Joseph Ballantyne</span>
+  <div style="display:flex;gap:16px;">
+    <a href="/" onclick="showPage('home'); return false;">Tools</a>
+    <a href="#contact" onclick="showPage('contact'); return false;">Contact</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
