@@ -5,7 +5,9 @@ function showPage(id) {
   const pageMap = {
     'home': 'page-home',
     'pocket-copy': 'page-pocket-copy',
-    'contact': 'page-contact'
+    'contact': 'page-contact',
+    'privacy': 'page-privacy',
+    'terms': 'page-terms'
   };
   const navMap = {
     'home': 'nav-home',
@@ -19,8 +21,16 @@ function showPage(id) {
   if (nav) nav.classList.add('active');
   window.scrollTo(0, 0);
 
-  // Update URL hash for bookmarkability
-  history.pushState(null, '', id === 'home' ? '/' : '#' + id);
+  // Bookmarkable URLs: hash routes work for file:// (e.g. index.html#contact); clean / on http(s) for home
+  if (id === 'home') {
+    if (location.protocol === 'file:') {
+      history.pushState(null, '', location.pathname + location.search);
+    } else {
+      history.pushState(null, '', '/');
+    }
+  } else {
+    history.pushState(null, '', '#' + id);
+  }
 }
 
 // Handle back/forward browser navigation
