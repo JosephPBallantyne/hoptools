@@ -4,6 +4,7 @@ function showPage(id) {
 
   const pageMap = {
     'home': 'page-home',
+    'revit': 'page-revit',
     'pocket-copy': 'page-pocket-copy',
     'contact': 'page-contact',
     'privacy': 'page-privacy',
@@ -11,12 +12,16 @@ function showPage(id) {
   };
   const navMap = {
     'home': 'nav-home',
-    'pocket-copy': 'nav-home',
-    'contact': 'nav-contact'
+    'revit': 'nav-revit',
+    'pocket-copy': 'nav-mac',
+    'contact': 'nav-contact',
+    'privacy': '',
+    'terms': ''
   };
 
   const page = document.getElementById(pageMap[id]);
-  const nav = document.getElementById(navMap[id]);
+  const navId = navMap[id];
+  const nav = navId ? document.getElementById(navId) : null;
   if (page) page.classList.add('active');
   if (nav) nav.classList.add('active');
   window.scrollTo(0, 0);
