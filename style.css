@@ -7,16 +7,16 @@
 }
 
 :root {
-  --hop-blue: #1a6fc4;
-  --hop-blue-light: #e8f1fb;
-  --hop-blue-mid: #3d8fd6;
-  --hop-blue-dark: #0d4a8a;
-  --hop-bg: #f8f9fc;
-  --hop-surface: #ffffff;
-  --hop-border: rgba(26, 111, 196, 0.12);
-  --hop-text: #111827;
-  --hop-muted: #6b7280;
-  --hop-subtle: #9ca3af;
+  --hop-blue: #D65A4F;
+  --hop-blue-light: rgba(214, 90, 79, 0.15);
+  --hop-blue-mid: #C04540;
+  --hop-blue-dark: #C04540;
+  --hop-bg: #1A1A1A;
+  --hop-surface: #242424;
+  --hop-border: rgba(255, 255, 255, 0.08);
+  --hop-text: #F0EDE8;
+  --hop-muted: rgba(240, 237, 232, 0.5);
+  --hop-subtle: rgba(240, 237, 232, 0.3);
   --font: "DM Sans", sans-serif;
   --mono: "DM Mono", monospace;
 }
@@ -41,7 +41,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 249, 252, 0.92);
+  background: rgba(26, 26, 26, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hop-border);
   padding: 0 2rem;
@@ -62,15 +62,13 @@ nav {
 .logo-mark {
   width: 28px;
   height: 28px;
-  background: var(--hop-blue);
-  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .logo-mark svg {
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
 }
 .nav-links {
   display: flex;
@@ -152,12 +150,23 @@ nav {
   padding: 96px 2rem 56px;
   text-align: center;
   background:
-    radial-gradient(ellipse at top, rgba(26, 111, 196, 0.06), transparent 60%),
+    radial-gradient(ellipse at top, rgba(214, 90, 79, 0.08), transparent 60%),
     var(--hop-bg);
 }
 .revit-hero-inner {
   max-width: 760px;
   margin: 0 auto;
+}
+.hoptools-hero-logo {
+  display: block;
+  margin: 0 auto 28px;
+  height: 128px;
+  width: 128px;
+}
+.revit-inline-logo {
+  height: 1.1em;
+  vertical-align: middle;
+  margin: 0 2px;
 }
 .revit-logo {
   display: block;
@@ -230,8 +239,8 @@ nav {
   font-family: var(--mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #e65100;
-  background: #fff8e1;
+  color: #D65A4F;
+  background: rgba(214, 90, 79, 0.12);
   padding: 4px 10px;
   border-radius: 100px;
 }
@@ -393,24 +402,24 @@ nav {
   font-family: var(--mono);
 }
 .tag-macos {
-  background: #f0f0f0;
-  color: #555;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(240, 237, 232, 0.6);
 }
 .tag-free {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.2);
+  color: #66bb6a;
 }
 .tag-privacy {
   background: var(--hop-blue-light);
-  color: var(--hop-blue-dark);
+  color: var(--hop-blue);
 }
 .tag-soon {
-  background: #fff8e1;
-  color: #e65100;
+  background: rgba(214, 90, 79, 0.15);
+  color: #D65A4F;
 }
 .tag-revit {
-  background: #ede7f6;
-  color: #4527a0;
+  background: rgba(95, 111, 143, 0.2);
+  color: #8A9FBF;
 }
 .card-arrow {
   position: absolute;
