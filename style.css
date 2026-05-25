@@ -546,107 +546,6 @@ nav {
   padding: 0 2rem 64px;
 }
 
-/* VIDEO WINDOW CHROME */
-.video-window {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 32px 80px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 255, 255, 0.04);
-  margin-bottom: 40px;
-}
-
-.video-window-bar {
-  background: #3A3A3A;
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
-  user-select: none;
-  min-height: 38px;
-}
-
-.window-dots {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-}
-
-.window-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.dot-red    { background: #FF5F57; }
-.dot-yellow { background: #FEBC2E; }
-.dot-green  { background: #28C840; }
-
-.window-title {
-  flex: 1;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(240, 237, 232, 0.4);
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-/* invisible spacer keeps title truly centred */
-.window-bar-spacer {
-  flex: 1;
-}
-
-/* VIDEO FACADE — lazy YouTube embed */
-.video-facade {
-  cursor: pointer;
-}
-
-.video-facade img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 68px;
-  height: 68px;
-  background: rgba(214, 90, 79, 0.92);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  pointer-events: none;
-}
-
-.video-facade:hover .play-btn {
-  background: var(--hop-blue-dark);
-  transform: translate(-50%, -50%) scale(1.07);
-}
-
-.play-btn svg {
-  width: 26px;
-  height: 26px;
-  margin-left: 3px;
-}
-
 /* VIDEO */
 .video-box {
   background: var(--hop-surface);
@@ -656,13 +555,6 @@ nav {
   margin-bottom: 40px;
   overflow: hidden;
   position: relative;
-}
-
-/* When inside a window chrome, strip the box's own border/radius/margin */
-.video-window .video-box {
-  border: none;
-  border-radius: 0;
-  margin-bottom: 0;
 }
 
 .video-box iframe {
