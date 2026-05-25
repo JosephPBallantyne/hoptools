@@ -1,3 +1,17 @@
+function playYouTube(el) {
+  var videoId = el.dataset.videoId;
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+  iframe.title = 'Document Controller demo';
+  iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  el.onclick = null;
+  el.style.cursor = 'default';
+  while (el.firstChild) el.removeChild(el.firstChild);
+  el.appendChild(iframe);
+}
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
