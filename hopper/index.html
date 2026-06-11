@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hopper — a HopTools game</title>
+    <meta name="description" content="Hopper: a fast little lane-runner starring the HopTools rabbit. Jump, dodge, sprint, obliterate." />
+    <meta name="author" content="Joseph Ballantyne" />
+    <meta property="og:title" content="Hopper" />
+    <meta property="og:description" content="Jump, dodge, sprint, obliterate." />
+    <meta property="og:url" content="https://hoptools.studio/hopper" />
+    <link rel="canonical" href="https://hoptools.studio/hopper" />
+    <link rel="icon" href="../hoptools_logo_icon_only.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SITE NAV -->
+    <nav>
+      <a class="nav-logo" href="/">
+        <div class="logo-mark">
+          <svg viewBox="140 40 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs><clipPath id="rs"><rect x="140" y="40" width="400" height="400" rx="90"/></clipPath></defs>
+            <rect x="140" y="40" width="400" height="400" rx="90" fill="#2B2B2B"/>
+            <g clip-path="url(#rs)">
+              <rect x="215" y="80" width="90" height="140" rx="16" fill="#D65A4F"/>
+              <rect x="224" y="89" width="72" height="122" rx="10" fill="#C04540"/>
+            </g>
+            <g clip-path="url(#rs)">
+              <rect x="375" y="80" width="90" height="140" rx="16" fill="#5F6F8F"/>
+              <rect x="384" y="89" width="72" height="122" rx="10" fill="#4E5E7D"/>
+            </g>
+            <rect x="196" y="205" width="288" height="188" rx="20" fill="#3A3A3A" clip-path="url(#rs)"/>
+            <rect x="208" y="217" width="264" height="164" rx="13" fill="#303030" clip-path="url(#rs)"/>
+            <rect x="316" y="376" width="48" height="12" rx="6" fill="#3A3A3A" clip-path="url(#rs)"/>
+          </svg>
+        </div>
+        HopTools
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/#revit">Revit tools</a>
+        <a class="nav-link" href="/#pocket-copy">Mac tools</a>
+        <span class="nav-dot" aria-hidden="true"></span>
+        <a class="nav-link" href="/#contact">Contact</a>
+        <a class="nav-link active" href="/hopper/">Play</a>
+      </div>
+    </nav>
+
+    <canvas id="game"></canvas>
+
+    <!-- SETUP SCREEN -->
+    <div class="overlay active" id="screen-setup">
+      <div class="panel setup-panel">
+        <a class="panel-logo" href="/" title="Back to HopTools">
+          <svg viewBox="140 40 400 400" xmlns="http://www.w3.org/2000/svg">
+            <rect x="140" y="40" width="400" height="400" rx="90" fill="#2B2B2B"/>
+            <rect x="215" y="80" width="90" height="140" rx="16" fill="#D65A4F"/>
+            <rect x="375" y="80" width="90" height="140" rx="16" fill="#5F6F8F"/>
+            <rect x="196" y="205" width="288" height="188" rx="20" fill="#3A3A3A"/>
+            <rect x="316" y="376" width="48" height="12" rx="6" fill="#2B2B2B"/>
+          </svg>
+          <span>HOP<em>TOOLS</em></span>
+        </a>
+        <h1 class="game-title">HOPPER</h1>
+        <p class="game-sub">Build your rabbit. Then run.</p>
+
+        <div class="setup-grid">
+          <div class="setup-preview">
+            <canvas id="preview" width="260" height="280"></canvas>
+          </div>
+          <div class="setup-controls">
+            <label class="field-label" for="name-input">NAME</label>
+            <input id="name-input" type="text" maxlength="14" value="Hopper" spellcheck="false" autocomplete="off" />
+            <div id="swatch-rows"></div>
+          </div>
+        </div>
+
+        <button class="btn-go" id="btn-start">OK — LET'S RUN</button>
+        <p class="help-line">
+          <span><b>CLICK</b> jump</span>
+          <span><b>MOUSE ←→</b> switch lanes</span>
+          <span><b>HOLD</b> sprint</span>
+          <span><b>P / ESC</b> pause</span>
+        </p>
+        <p class="help-line dim">Keyboard works too: ← → move · SPACE jump · SHIFT sprint</p>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-top">
+        <div class="hud-left">
+          <span class="hud-brand">HOPPER</span>
+          <span class="hud-player" id="hud-name">Hopper</span>
+        </div>
+        <div class="hud-center">
+          <div class="hud-score" id="hud-score">0.0</div>
+          <div class="hud-best" id="hud-best">BEST 0.0</div>
+        </div>
+        <div class="hud-right">
+          <button class="hud-btn" id="btn-mute" title="Mute (M)">♪</button>
+          <button class="hud-btn" id="btn-pause" title="Pause (P)">⏸</button>
+        </div>
+      </div>
+      <div class="hud-bottom">
+        <div class="power-wrap">
+          <div class="power-label" id="power-label">SPEED</div>
+          <div class="power-bar"><div class="power-fill" id="power-fill"></div></div>
+          <div class="blaze-pips" id="blaze-pips">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAUSE -->
+    <div class="overlay" id="screen-pause">
+      <div class="panel small-panel">
+        <h2>PAUSED</h2>
+        <button class="btn-go" id="btn-resume">RESUME</button>
+        <button class="btn-ghost" id="btn-restart">RESTART RUN</button>
+        <button class="btn-ghost" id="btn-mute2">SOUND: ON</button>
+        <button class="btn-ghost" id="btn-quit">CHANGE RABBIT</button>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div class="overlay" id="screen-over">
+      <div class="panel small-panel">
+        <h2 class="wipeout">WIPEOUT</h2>
+        <div class="final-score" id="final-score">0.0</div>
+        <div class="final-stats" id="final-stats"></div>
+        <button class="btn-go" id="btn-retry">RUN AGAIN <span class="key-hint">SPACE</span></button>
+        <button class="btn-ghost" id="btn-menu">CHANGE RABBIT</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
