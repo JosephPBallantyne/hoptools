@@ -81,6 +81,16 @@
           "
           >Mac tools</a
         >
+        <a
+          class="nav-link"
+          id="nav-android"
+          href="#samh"
+          onclick="
+            showPage('samh');
+            return false;
+          "
+          >Android</a
+        >
         <span class="nav-dot" aria-hidden="true"></span>
         <a
           class="nav-link"
@@ -273,6 +283,27 @@
               <div class="tool-tags">
                 <span class="tag tag-free">Free</span>
                 <span class="tag tag-privacy">Browser game</span>
+              </div>
+            </a>
+            <a
+              class="tool-card"
+              href="#samh"
+              onclick="
+                showPage('samh');
+                return false;
+              "
+            >
+              <div class="card-arrow">↗</div>
+              <div class="tool-icon samh-icon"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36" fill="#8ec9ef"/><path d="M18.5 26q6 4.7 12 0M41.5 26q6 4.7 12 0M29.3 43.5q6.7 5.4 13.4 0" fill="none" stroke="#2d4f6e" stroke-width="2.7" stroke-linecap="round"/></svg></div>
+              <h3>sámh</h3>
+              <p>
+                A calm app blocker for Android. Your phone rests, and a small
+                sprite by the sea thrives for it. Everything stays on your phone.
+              </p>
+              <div class="tool-tags">
+                <span class="tag tag-macos">Android</span>
+                <span class="tag tag-soon">Coming soon</span>
+                <span class="tag tag-privacy">Privacy-first</span>
               </div>
             </a>
             <a
@@ -652,6 +683,109 @@
       </div>
     </div>
 
+    <!-- ======================== SÁMH PAGE ======================== -->
+    <div class="page" id="page-samh">
+      <div class="tool-detail">
+        <a
+          class="back-btn"
+          href="/"
+          onclick="
+            showPage('home');
+            return false;
+          "
+        >
+          <svg
+            viewBox="0 0 14 14"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path d="M9 2L4 7l5 5" />
+          </svg>
+          All tools
+        </a>
+
+        <div class="detail-header">
+          <div class="detail-icon samh-icon"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36" fill="#8ec9ef"/><path d="M18.5 26q6 4.7 12 0M41.5 26q6 4.7 12 0M29.3 43.5q6.7 5.4 13.4 0" fill="none" stroke="#2d4f6e" stroke-width="2.7" stroke-linecap="round"/></svg></div>
+          <div>
+            <h1>sámh</h1>
+            <p>
+              A calm app blocker for Android. Your phone rests, and a small
+              sprite by the sea thrives for it.
+            </p>
+          </div>
+        </div>
+
+        <p class="detail-desc">
+          sámh (say <em>sawv</em>, Irish for peaceful) holds the apps and
+          websites you choose. Open one and a quiet resting screen takes its
+          place; getting back in asks for a deliberate unlock ritual, not a
+          tap. A sprite lives in a seaside sanctuary whose sky follows your
+          real sunrise and sunset, and it grows healthier as your screen time
+          settles under a target you set. No account, no cloud, no analytics.
+        </p>
+
+        <div class="action-row">
+          <span class="btn-secondary btn-static">Coming soon to Google Play</span>
+          <a
+            class="btn-secondary"
+            href="#privacy"
+            onclick="
+              showPage('privacy');
+              return false;
+            "
+            >Privacy</a
+          >
+        </div>
+
+        <img
+          class="samh-feature"
+          src="assets/samh/feature.jpg"
+          alt="The sámh sanctuary at evening: a headland with a sheep on the lip, the sea, and the sprite on a green hill."
+          width="1024"
+          height="500"
+        />
+
+        <div class="samh-shots">
+          <img src="assets/samh/morning.jpg" alt="The sanctuary in the morning, with a quote in the sky." width="540" height="960" loading="lazy" />
+          <img src="assets/samh/blocks.jpg" alt="Today's screen time against the target, and the apps and sites being held." width="540" height="960" loading="lazy" />
+          <img src="assets/samh/resting.jpg" alt="A blocked app replaced by the resting screen: YouTube is resting." width="540" height="960" loading="lazy" />
+          <img src="assets/samh/headland.jpg" alt="The sanctuary drawn back, showing the headland along the coast." width="540" height="960" loading="lazy" />
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              <strong>Holds apps and sites</strong>
+              <p>Any app, and websites in Chrome, always or in a daily window.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              <strong>An unlock that asks something</strong>
+              <p>A short ritual stands between you and a held app, never a single tap.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              <strong>A sprite, not a score</strong>
+              <p>Its sanctuary follows your real sky; its weather follows your screen time.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <div>
+              <strong>100% on your phone</strong>
+              <p>No account, no cloud, no analytics. Uninstalling removes every block.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ======================== CONTACT PAGE ======================== -->
     <div class="page" id="page-contact">
       <div class="contact-page">
@@ -745,14 +879,14 @@
       <div class="legal-page">
         <h1>Privacy policy</h1>
         <p class="legal-meta">
-          Last updated: 19 April 2026 · HopTools (Joseph Ballantyne), United
+          Last updated: 27 September 2026 · HopTools (Joseph Ballantyne), United
           Kingdom
         </p>
 
         <p>
           This policy explains how HopTools (“we”, “us”) handles information
           when you use this website (<strong>hoptools.studio</strong>) and our
-          software (for example, Pocket Copy). HopTools is operated as a sole
+          software (for example, Pocket Copy and sámh). HopTools is operated as a sole
           trader business by Joseph Ballantyne in the UK.
         </p>
 
@@ -787,6 +921,42 @@
           If you download software from this site or from third-party stores,
           those platforms may process their own technical and account data under
           their policies.
+        </p>
+
+        <h2>sámh (Android)</h2>
+        <p>
+          sámh works entirely on your phone. It has no account, no server, no
+          analytics, no advertising and no third-party tracking code, and it
+          does not have permission to use the internet. Nothing it sees is
+          sent to HopTools or anyone else.
+        </p>
+        <p>
+          To do its job it can see, on your phone only:
+        </p>
+        <ul>
+          <li>
+            <strong>Which app is in front, and the address bar in Chrome</strong>,
+            through Android’s accessibility service, so it can show its resting
+            screen when you open an app or website you chose to block. It asks
+            for your agreement in the app before you turn this on, and it does
+            not read anything else on your screen.
+          </li>
+          <li>
+            <strong>How long your screen has been unlocked each day</strong>,
+            through Android’s usage access, to compare with the screen time
+            target you set.
+          </li>
+          <li>
+            <strong>Your approximate location</strong>, only if you allow it,
+            to work out sunrise and sunset for the sanctuary’s sky. It is
+            worked out on the phone and kept there.
+          </li>
+        </ul>
+        <p>
+          Your blocks, settings and history are stored on your phone and
+          deleted when you uninstall sámh. Google Play, from which you install
+          it, processes its own account and install data under Google’s
+          policies.
         </p>
 
         <h2>Email and support</h2>

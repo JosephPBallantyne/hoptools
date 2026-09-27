@@ -6,6 +6,7 @@ function showPage(id) {
     'home': 'page-home',
     'revit': 'page-revit',
     'pocket-copy': 'page-pocket-copy',
+    'samh': 'page-samh',
     'contact': 'page-contact',
     'privacy': 'page-privacy',
     'terms': 'page-terms'
@@ -14,6 +15,7 @@ function showPage(id) {
     'home': 'nav-home',
     'revit': 'nav-revit',
     'pocket-copy': 'nav-mac',
+    'samh': 'nav-android',
     'contact': 'nav-contact',
     'privacy': '',
     'terms': ''
