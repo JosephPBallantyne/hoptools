@@ -26,6 +26,7 @@ function showPage(id) {
   const nav = navId ? document.getElementById(navId) : null;
   if (page) page.classList.add('active');
   if (nav) nav.classList.add('active');
+  updateAccent();
   window.scrollTo(0, 0);
 
   // Bookmarkable URLs: hash routes work for file:// (e.g. index.html#contact); clean / on http(s) for home
@@ -51,3 +52,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '') || 'home';
   showPage(hash);
 });
+
+// Theme: light by default; dark only when the visitor picks it
+function toggleTheme() {
+  const root = document.documentElement;
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  if (next === 'dark') root.dataset.theme = 'dark';
+  else delete root.dataset.theme;
+  try {
+    localStorage.setItem('theme', next);
+  } catch (e) {}
+}
+
+// Home tabs: sámh is the default, Document Controller is one click away
+let homeTab = 'samh';
+
+function showHomeTab(tab) {
+  homeTab = tab;
+  document.querySelectorAll('.home-tab').forEach(t => {
+    const on = t.dataset.tab === tab;
+    t.classList.toggle('active', on);
+    t.setAttribute('aria-selected', on);
+  });
+  document.querySelectorAll('.home-panel').forEach(p => {
+    p.hidden = p.dataset.panel !== tab;
+  });
+  updateAccent();
+}
+
+// sámh gets its own palette whenever it's what's on screen
+function updateAccent() {
+  const onSamh =
+    document.getElementById('page-samh').classList.contains('active') ||
+    (document.getElementById('page-home').classList.contains('active') && homeTab === 'samh');
+  if (onSamh) document.documentElement.dataset.accent = 'samh';
+  else delete document.documentElement.dataset.accent;
+}

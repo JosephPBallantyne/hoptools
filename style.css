@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:wght@500;600&display=swap");
 
 * {
   margin: 0;
@@ -7,6 +7,36 @@
 }
 
 :root {
+  --hop-blue: #C04540;
+  --hop-blue-light: rgba(214, 90, 79, 0.1);
+  --hop-blue-mid: #A83A35;
+  --hop-blue-dark: #A83A35;
+  --hop-bg: #FAF8F5;
+  --hop-surface: #FFFFFF;
+  --hop-border: rgba(26, 26, 26, 0.1);
+  --hop-text: #1A1A1A;
+  --hop-muted: rgba(26, 26, 26, 0.64);
+  --hop-subtle: rgba(26, 26, 26, 0.45);
+  --hop-nav-bg: rgba(250, 248, 245, 0.92);
+  --hop-accent-border: rgba(192, 69, 64, 0.2);
+  --hop-shadow: rgba(26, 26, 26, 0.08);
+  --hop-hero-glow: rgba(214, 90, 79, 0.1);
+  --tag-neutral-bg: rgba(26, 26, 26, 0.06);
+  --tag-neutral-text: rgba(26, 26, 26, 0.65);
+  --tag-green-bg: rgba(46, 125, 50, 0.1);
+  --tag-green-text: #2E7D32;
+  --tag-red-bg: rgba(214, 90, 79, 0.1);
+  --tag-red-text: #B03E38;
+  --tag-slate-bg: rgba(95, 111, 143, 0.12);
+  --tag-slate-text: #4E5E7D;
+  --font: "DM Sans", sans-serif;
+  --mono: "DM Mono", monospace;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  color-scheme: light;
+}
+
+/* DARK THEME — opt-in from the nav toggle; light is the default */
+:root[data-theme="dark"] {
   --hop-blue: #D65A4F;
   --hop-blue-light: rgba(214, 90, 79, 0.15);
   --hop-blue-mid: #C04540;
@@ -17,8 +47,53 @@
   --hop-text: #F0EDE8;
   --hop-muted: rgba(240, 237, 232, 0.5);
   --hop-subtle: rgba(240, 237, 232, 0.3);
-  --font: "DM Sans", sans-serif;
-  --mono: "DM Mono", monospace;
+  --hop-nav-bg: rgba(26, 26, 26, 0.95);
+  --hop-accent-border: rgba(26, 111, 196, 0.2);
+  --hop-shadow: rgba(26, 111, 196, 0.08);
+  --hop-hero-glow: rgba(214, 90, 79, 0.08);
+  --tag-neutral-bg: rgba(255, 255, 255, 0.08);
+  --tag-neutral-text: rgba(240, 237, 232, 0.6);
+  --tag-green-bg: rgba(46, 125, 50, 0.2);
+  --tag-green-text: #66bb6a;
+  --tag-red-bg: rgba(214, 90, 79, 0.15);
+  --tag-red-text: #D65A4F;
+  --tag-slate-bg: rgba(95, 111, 143, 0.2);
+  --tag-slate-text: #8A9FBF;
+  color-scheme: dark;
+}
+
+/* SÁMH ACCENT — sea, sky and mint from the app, set while sámh is on screen */
+:root[data-accent="samh"] {
+  --hop-blue: #2A7F5F;
+  --hop-blue-light: rgba(62, 170, 128, 0.14);
+  --hop-blue-mid: #3EAA80;
+  --hop-blue-dark: #22694F;
+  --hop-bg: #F2F6F1;
+  --hop-surface: #FAFCF9;
+  --hop-border: rgba(34, 48, 43, 0.12);
+  --hop-text: #22302B;
+  --hop-muted: rgba(34, 48, 43, 0.66);
+  --hop-subtle: rgba(34, 48, 43, 0.46);
+  --hop-nav-bg: rgba(242, 246, 241, 0.92);
+  --hop-accent-border: rgba(42, 127, 95, 0.2);
+  --hop-shadow: rgba(34, 48, 43, 0.08);
+  --hop-hero-glow: rgba(142, 201, 239, 0.4);
+}
+:root[data-theme="dark"][data-accent="samh"] {
+  --hop-blue: #5CC49A;
+  --hop-blue-light: rgba(92, 196, 154, 0.15);
+  --hop-blue-mid: #4AB088;
+  --hop-blue-dark: #4AB088;
+  --hop-bg: #131D22;
+  --hop-surface: #1B282E;
+  --hop-border: rgba(255, 255, 255, 0.08);
+  --hop-text: #E6EFEA;
+  --hop-muted: rgba(230, 239, 234, 0.58);
+  --hop-subtle: rgba(230, 239, 234, 0.36);
+  --hop-nav-bg: rgba(19, 29, 34, 0.95);
+  --hop-accent-border: rgba(92, 196, 154, 0.2);
+  --hop-shadow: rgba(0, 0, 0, 0.25);
+  --hop-hero-glow: rgba(142, 201, 239, 0.12);
 }
 
 body {
@@ -26,6 +101,9 @@ body {
   background: var(--hop-bg);
   color: var(--hop-text);
   min-height: 100vh;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
 /* SPA PAGE VISIBILITY */
@@ -41,7 +119,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(26, 26, 26, 0.95);
+  background: var(--hop-nav-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hop-border);
   padding: 0 2rem;
@@ -107,6 +185,42 @@ nav {
   font-weight: 500;
 }
 
+/* THEME TOGGLE — shows the icon for the theme you'd switch to */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 6px;
+  padding: 0;
+  border: 1px solid var(--hop-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--hop-muted);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+.theme-toggle:hover {
+  color: var(--hop-text);
+  background: var(--hop-blue-light);
+}
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+.theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
 /* HERO */
 .hero {
   padding: 80px 2rem 64px;
@@ -125,7 +239,7 @@ nav {
   padding: 4px 12px;
   border-radius: 100px;
   margin-bottom: 24px;
-  border: 1px solid rgba(26, 111, 196, 0.2);
+  border: 1px solid var(--hop-accent-border);
 }
 .hero h1 {
   font-size: 42px;
@@ -150,18 +264,12 @@ nav {
   padding: 96px 2rem 56px;
   text-align: center;
   background:
-    radial-gradient(ellipse at top, rgba(214, 90, 79, 0.08), transparent 60%),
+    radial-gradient(ellipse at top, var(--hop-hero-glow), transparent 60%),
     var(--hop-bg);
 }
 .revit-hero-inner {
   max-width: 760px;
   margin: 0 auto;
-}
-.hoptools-hero-logo {
-  display: block;
-  margin: 0 auto 28px;
-  height: 128px;
-  width: 128px;
 }
 .revit-inline-logo {
   height: 1.1em;
@@ -187,7 +295,7 @@ nav {
   text-transform: uppercase;
   color: var(--hop-blue-dark);
   background: var(--hop-blue-light);
-  border: 1px solid rgba(26, 111, 196, 0.2);
+  border: 1px solid var(--hop-accent-border);
   padding: 6px 14px;
   border-radius: 100px;
   margin-bottom: 28px;
@@ -257,7 +365,7 @@ nav {
 .revit-feature:hover {
   border-color: var(--hop-blue-mid);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(26, 111, 196, 0.08);
+  box-shadow: 0 8px 24px var(--hop-shadow);
 }
 .revit-feature-icon {
   width: 40px;
@@ -333,7 +441,7 @@ nav {
 .tool-card:hover {
   border-color: var(--hop-blue-mid);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(26, 111, 196, 0.1);
+  box-shadow: 0 8px 32px var(--hop-shadow);
 }
 .tool-card.coming-soon {
   pointer-events: none;
@@ -379,24 +487,24 @@ nav {
   font-family: var(--mono);
 }
 .tag-macos {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(240, 237, 232, 0.6);
+  background: var(--tag-neutral-bg);
+  color: var(--tag-neutral-text);
 }
 .tag-free {
-  background: rgba(46, 125, 50, 0.2);
-  color: #66bb6a;
+  background: var(--tag-green-bg);
+  color: var(--tag-green-text);
 }
 .tag-privacy {
   background: var(--hop-blue-light);
   color: var(--hop-blue);
 }
 .tag-soon {
-  background: rgba(214, 90, 79, 0.15);
-  color: #D65A4F;
+  background: var(--tag-red-bg);
+  color: var(--tag-red-text);
 }
 .tag-revit {
-  background: rgba(95, 111, 143, 0.2);
-  color: #8A9FBF;
+  background: var(--tag-slate-bg);
+  color: var(--tag-slate-text);
 }
 .card-arrow {
   position: absolute;
@@ -566,7 +674,80 @@ nav {
   border: none;
 }
 
+/* HOME TABS */
+.home-hero {
+  padding-top: 64px;
+}
+.home-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 40px;
+  background: var(--hop-surface);
+  border: 1px solid var(--hop-border);
+  border-radius: 12px;
+}
+.home-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--hop-muted);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+.home-tab:hover {
+  color: var(--hop-text);
+}
+.home-tab.active {
+  background: var(--hop-blue-light);
+  color: var(--hop-text);
+}
+.home-tab-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.home-tab-platform {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--hop-subtle);
+}
+.revit-features-2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+.home-panel .samh-feature {
+  margin-bottom: 0;
+}
+
 /* SÁMH */
+.samh-title,
+#page-samh .detail-header h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.revit-hero h1.samh-title {
+  font-size: 64px;
+  line-height: 1;
+}
+.revit-hero h1.samh-title span {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 36px;
+  line-height: 1.2;
+}
+#page-samh .detail-header h1 {
+  font-size: 40px;
+}
 .samh-icon {
   background: none;
 }
@@ -908,6 +1089,21 @@ footer a:hover {
   .revit-hero h1 {
     font-size: 32px;
     line-height: 1.15;
+  }
+  .revit-hero h1.samh-title {
+    font-size: 48px;
+  }
+  .revit-hero h1.samh-title span {
+    font-size: 26px;
+  }
+  .home-hero {
+    padding-top: 40px;
+  }
+  .home-tab {
+    padding: 8px 12px;
+  }
+  .home-tab-platform {
+    display: none;
   }
   .revit-hero-sub {
     font-size: 16px;

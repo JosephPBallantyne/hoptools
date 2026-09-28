@@ -15,6 +15,13 @@
     <link rel="canonical" href="https://hoptools.studio" />
     <link rel="icon" href="hoptools_logo_icon_only.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      try {
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+      // Set the sámh palette before first paint when it's the landing view
+      if (['', '#home', '#samh'].includes(location.hash)) document.documentElement.dataset.accent = 'samh';
+    </script>
   </head>
   <body>
     <!-- NAV -->
@@ -63,13 +70,13 @@
         >
         <a
           class="nav-link"
-          id="nav-revit"
-          href="#revit"
+          id="nav-android"
+          href="#samh"
           onclick="
-            showPage('revit');
+            showPage('samh');
             return false;
           "
-          >Revit tools</a
+          >Android</a
         >
         <a
           class="nav-link"
@@ -79,17 +86,17 @@
             showPage('pocket-copy');
             return false;
           "
-          >Mac tools</a
+          >Mac</a
         >
         <a
           class="nav-link"
-          id="nav-android"
-          href="#samh"
+          id="nav-revit"
+          href="#revit"
           onclick="
-            showPage('samh');
+            showPage('revit');
             return false;
           "
-          >Android</a
+          >Revit</a
         >
         <span class="nav-dot" aria-hidden="true"></span>
         <a
@@ -107,155 +114,296 @@
           href="/hopper/"
           >Play</a
         >
+        <button
+          class="theme-toggle"
+          type="button"
+          onclick="toggleTheme()"
+          aria-label="Toggle light and dark mode"
+          title="Toggle light and dark mode"
+        >
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
       </div>
     </nav>
 
     <!-- ======================== HOME PAGE ======================== -->
     <div class="page active" id="page-home">
-      <div class="revit-hero">
+      <div class="revit-hero home-hero">
         <div class="revit-hero-inner">
+          <div class="home-tabs" role="tablist" aria-label="Featured tools">
+            <button
+              class="home-tab active"
+              type="button"
+              role="tab"
+              data-tab="samh"
+              aria-selected="true"
+              onclick="showHomeTab('samh')"
+            >
+              <span class="home-tab-icon samh-icon"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36" fill="#8ec9ef"/><path d="M18.5 26q6 4.7 12 0M41.5 26q6 4.7 12 0M29.3 43.5q6.7 5.4 13.4 0" fill="none" stroke="#2d4f6e" stroke-width="2.7" stroke-linecap="round"/></svg></span>
+              sámh
+              <span class="home-tab-platform">Android</span>
+            </button>
+            <button
+              class="home-tab"
+              type="button"
+              role="tab"
+              data-tab="revit"
+              aria-selected="false"
+              onclick="showHomeTab('revit')"
+            >
+              <img class="home-tab-icon" src="autodesk-revit-logo-icon.svg" alt="" />
+              Document Controller
+              <span class="home-tab-platform">Revit</span>
+            </button>
+          </div>
+
+          <div class="home-panel" data-panel="samh" role="tabpanel">
+            <h1 class="samh-title">
+              sámh<br /><span>Your phone rests. A small sprite by the sea thrives for it.</span>
+            </h1>
+            <p class="revit-hero-sub">
+              A calm app blocker for Android. sámh (say <em>sawv</em>, Irish
+              for peaceful) holds the apps and websites you choose, and swaps
+              them for a quiet resting screen. Everything stays on your phone.
+            </p>
+
+            <div class="hero-cta">
+              <span class="btn-secondary btn-static">Coming soon to Google Play</span>
+              <a
+                class="hero-link"
+                href="#samh"
+                onclick="
+                  showPage('samh');
+                  return false;
+                "
+                >Learn more →</a
+              >
+            </div>
+          </div>
+
+          <div class="home-panel" data-panel="revit" role="tabpanel" hidden>
+            <h1>
+              Document Controller<br /><span
+                >Quality control for Revit, built by architects.</span
+              >
+            </h1>
+            <p class="revit-hero-sub">
+              Automated drawing review for Autodesk Revit <img src="autodesk-revit-logo-icon.svg" alt="Revit" class="revit-inline-logo"> — run your full QA checklist across every sheet in seconds. Title block fields, revision dates, sheet numbers, viewport bounds, text overlaps and more.
+            </p>
+
+            <div class="hero-cta">
+              <a
+                class="btn-primary"
+                href="https://apps.autodesk.com/RVT/en/Detail/Index?id=5382788203580900481&appLang=en&os=Win64"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M3 3h18v18H3z" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+                Try free for 30 days →
+              </a>
+              <a
+                class="hero-link"
+                href="#revit"
+                onclick="
+                  showPage('revit');
+                  return false;
+                "
+                >Learn more →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-panel" data-panel="samh">
+        <div class="home-video-section">
           <img
-            src="hoptools_logo_with_text.svg"
-            alt="HopTools"
-            class="hoptools-hero-logo"
+            class="samh-feature"
+            src="assets/samh/feature.jpg"
+            alt="The sámh sanctuary at evening: a headland with a sheep on the lip, the sea, and the sprite on a green hill."
+            width="1024"
+            height="500"
           />
+        </div>
 
-          <h1>
-            Document Controller<br /><span
-              >Quality control for Revit, built by architects.</span
-            >
-          </h1>
-          <p class="revit-hero-sub">
-            Automated drawing review for Autodesk Revit <img src="autodesk-revit-logo-icon.svg" alt="Revit" class="revit-inline-logo"> — run your full QA checklist across every sheet in seconds. Title block fields, revision dates, sheet numbers, viewport bounds, text overlaps and more.
-          </p>
-
-          <div class="hero-cta">
-            <a
-              class="btn-primary"
-              href="https://apps.autodesk.com/RVT/en/Detail/Index?id=5382788203580900481&appLang=en&os=Win64"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M3 3h18v18H3z" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
-              Try free for 30 days →
-            </a>
-            <a
-              class="hero-link"
-              href="#revit"
-              onclick="
-                showPage('revit');
-                return false;
-              "
-              >Learn more →</a
-            >
+        <div class="revit-features-section">
+          <div class="section-label">What it does</div>
+          <div class="revit-features revit-features-2col">
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="5" y="11" width="14" height="10" rx="2" />
+                  <path d="M8 11V7a4 4 0 018 0v4" />
+                </svg>
+              </div>
+              <h3>Holds apps and sites</h3>
+              <p>Any app, and websites in Chrome, always or in a daily window. Open one and a quiet resting screen takes its place.</p>
+            </div>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M12 3a9 9 0 109 9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+              </div>
+              <h3>An unlock that asks something</h3>
+              <p>Getting back in takes a short, deliberate ritual. Never a single tap.</p>
+            </div>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2" />
+                </svg>
+              </div>
+              <h3>A sprite, not a score</h3>
+              <p>Its seaside sanctuary follows your real sunrise and sunset, and it thrives as your screen time settles.</p>
+            </div>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <h3>100% on your phone</h3>
+              <p>No account, no cloud, no analytics. Uninstalling removes every block.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="home-video-section">
-        <div class="video-box">
-          <iframe
-            src="https://www.youtube.com/embed/QqInI-DLdjA"
-            title="Document Controller demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+      <div class="home-panel" data-panel="revit" hidden>
+        <div class="home-video-section">
+          <div class="video-box">
+            <iframe
+              src="https://www.youtube.com/embed/QqInI-DLdjA"
+              title="Document Controller demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
-      </div>
 
-      <div class="revit-features-section">
-        <div class="section-label">What it does</div>
-        <div class="revit-features">
-          <div class="revit-feature">
-            <div class="revit-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="M9 11l3 3L22 4" />
-                <path
-                  d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
-                />
-              </svg>
+        <div class="revit-features-section">
+          <div class="section-label">What it does</div>
+          <div class="revit-features">
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M9 11l3 3L22 4" />
+                  <path
+                    d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+                  />
+                </svg>
+              </div>
+              <h3>Catch errors before they ship</h3>
+              <p>Every check you'd do by hand, run in parallel across every sheet. Issues grouped by sheet with element IDs so you can jump straight to the fix.</p>
             </div>
-            <h3>Catch errors before they ship</h3>
-            <p>Every check you'd do by hand, run in parallel across every sheet. Issues grouped by sheet with element IDs so you can jump straight to the fix.</p>
-          </div>
-          <div class="revit-feature">
-            <div class="revit-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="7" rx="1" />
-                <rect x="3" y="14" width="7" height="7" rx="1" />
-                <rect x="14" y="14" width="7" height="7" rx="1" />
-              </svg>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+              </div>
+              <h3>Standardise across the firm</h3>
+              <p>Rules live in shareable JSON files. Your BIM Manager defines the standard once; everyone runs the same checks.</p>
             </div>
-            <h3>Standardise across the firm</h3>
-            <p>Rules live in shareable JSON files. Your BIM Manager defines the standard once; everyone runs the same checks.</p>
-          </div>
-          <div class="revit-feature">
-            <div class="revit-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path
-                  d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
-                />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="9" y1="13" x2="15" y2="13" />
-                <line x1="9" y1="17" x2="15" y2="17" />
-              </svg>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                  />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="9" y1="13" x2="15" y2="13" />
+                  <line x1="9" y1="17" x2="15" y2="17" />
+                </svg>
+              </div>
+              <h3>Exportable PDF reports</h3>
+              <p>Export results to PDF for QA records. Sheet metadata summary ready for issue records and consultant submissions.</p>
             </div>
-            <h3>Exportable PDF reports</h3>
-            <p>Export results to PDF for QA records. Sheet metadata summary ready for issue records and consultant submissions.</p>
-          </div>
-          <div class="revit-feature">
-            <div class="revit-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <h3>Built for Revit, not bolted on</h3>
+              <p>Modeless window keeps Revit responsive. Architecture-aware spell check. Multi-version support from a single install.</p>
             </div>
-            <h3>Built for Revit, not bolted on</h3>
-            <p>Modeless window keeps Revit responsive. Architecture-aware spell check. Multi-version support from a single install.</p>
-          </div>
-          <div class="revit-feature">
-            <div class="revit-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
+            <div class="revit-feature">
+              <div class="revit-feature-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <h3>30-day free trial</h3>
+              <p>No credit card required. One-time purchase per Autodesk account. Use across all your machines while signed in.</p>
             </div>
-            <h3>30-day free trial</h3>
-            <p>No credit card required. One-time purchase per Autodesk account. Use across all your machines while signed in.</p>
           </div>
         </div>
       </div>
@@ -283,27 +431,6 @@
               <div class="tool-tags">
                 <span class="tag tag-free">Free</span>
                 <span class="tag tag-privacy">Browser game</span>
-              </div>
-            </a>
-            <a
-              class="tool-card"
-              href="#samh"
-              onclick="
-                showPage('samh');
-                return false;
-              "
-            >
-              <div class="card-arrow">↗</div>
-              <div class="tool-icon samh-icon"><svg viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="36" fill="#8ec9ef"/><path d="M18.5 26q6 4.7 12 0M41.5 26q6 4.7 12 0M29.3 43.5q6.7 5.4 13.4 0" fill="none" stroke="#2d4f6e" stroke-width="2.7" stroke-linecap="round"/></svg></div>
-              <h3>sámh</h3>
-              <p>
-                A calm app blocker for Android. Your phone rests, and a small
-                sprite by the sea thrives for it. Everything stays on your phone.
-              </p>
-              <div class="tool-tags">
-                <span class="tag tag-macos">Android</span>
-                <span class="tag tag-soon">Coming soon</span>
-                <span class="tag tag-privacy">Privacy-first</span>
               </div>
             </a>
             <a
