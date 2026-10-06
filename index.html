@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://hoptools.studio" />
     <link rel="canonical" href="https://hoptools.studio" />
     <link rel="icon" href="hoptools_logo_icon_only.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css?v=3" />
+    <link rel="stylesheet" href="style.css?v=4" />
     <script>
       try {
         if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
@@ -1320,6 +1320,13 @@
       </div>
     </footer>
 
-    <script src="main.js?v=2"></script>
+    <dialog class="lightbox" id="lightbox" aria-label="Screenshot viewer">
+      <button class="lightbox-btn lightbox-close" type="button" aria-label="Close" onclick="closeLightbox()">&times;</button>
+      <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous" onclick="stepLightbox(-1)">&#8249;</button>
+      <img class="lightbox-img" alt="" />
+      <button class="lightbox-btn lightbox-next" type="button" aria-label="Next" onclick="stepLightbox(1)">&#8250;</button>
+    </dialog>
+
+    <script src="main.js?v=3"></script>
   </body>
 </html>
