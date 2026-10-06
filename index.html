@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://hoptools.studio" />
     <link rel="canonical" href="https://hoptools.studio" />
     <link rel="icon" href="hoptools_logo_icon_only.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="style.css?v=4" />
+    <link rel="stylesheet" href="style.css?v=5" />
     <script>
       try {
         if (localStorage.getItem('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
@@ -229,13 +229,16 @@
 
       <div class="home-panel" data-panel="samh">
         <div class="home-video-section">
-          <img
-            class="samh-feature"
-            src="assets/samh/feature.jpg"
-            alt="The sámh sanctuary at evening: a headland with a sheep on the lip, the sea, and the sprite on a green hill."
-            width="1024"
-            height="500"
-          />
+          <div class="video-box">
+            <video
+              src="assets/samh/promo.mp4"
+              poster="assets/samh/promo-poster.jpg"
+              controls
+              playsinline
+              preload="metadata"
+              aria-label="sámh promo video"
+            ></video>
+          </div>
         </div>
 
         <div class="revit-features-section">

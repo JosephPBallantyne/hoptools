@@ -665,7 +665,8 @@ nav {
   position: relative;
 }
 
-.video-box iframe {
+.video-box iframe,
+.video-box video {
   position: absolute;
   top: 0;
   left: 0;
