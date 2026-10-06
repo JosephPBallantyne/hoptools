@@ -711,11 +711,6 @@ nav {
   background: var(--hop-blue-light);
   color: var(--hop-text);
 }
-.home-tab-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
 .home-tab-platform {
   font-family: var(--mono);
   font-size: 11px;
